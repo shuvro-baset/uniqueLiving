@@ -68,7 +68,7 @@
             position: fixed;
             left: 0;
             z-index: 1000;
-            height: 100vh;
+            height: 100%;
             width: 100%;
             cursor: pointer;
             display: flex;
@@ -78,9 +78,66 @@
         }
         
         #sp-lightbox img {
+            position: absolute;
+            /* margin: 0 auto; */
+            left: 40%;
+            top: 20%;
             height: 400px;
             width: 400px;
-            /* margin: 0 auto; */
+        }
+        
+        @media (max-width: 1440px) {
+            #sp-lightbox img {
+                left: 40%;
+                top: 20%;
+                height: 400px;
+                width: 400px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            #sp-lightbox img {
+                left: 35%;
+                top: 20%;
+                height: 350px;
+                width: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #sp-lightbox img {
+                left: 30%;
+                top: 20%;
+                height: 300px;
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 426px) {
+            #sp-lightbox img {
+                left: 15%;
+                top: 25%;
+                height: 300px;
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 376px) {
+            #sp-lightbox img {
+                left: 10%;
+                top: 25%;
+                height: 300px;
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 321px) {
+            #sp-lightbox img {
+                left: 10%;
+                top: 25%;
+                height: 300px;
+                width: 300px;
+            }
         }
     </style>
 </head>
@@ -89,7 +146,8 @@
 <body>
 
     <!-- This below div is used for displaying the product image in a bigger scale on clicking on it. Moving this from here may cause malfunctioning -->
-    <div id="sp-lightbox"><img src="http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg"></div>
+    <!-- <div id="sp-lightbox" class="d-flex flex-row align-items-center justify-content-center"><img class="img img-thumbnail" src="http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg"></div> -->
+    <div id="sp-lightbox"><img class="img img-thumbnail" src="http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg"></div>
 
 
     <!-- navbar start  -->
@@ -331,14 +389,23 @@
                             <div class="sp-wrap sp-non-touch" style="display: inline-block;">
 
                                 <div class="sp-large">
-                                    <a href="http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg" class=".sp-current-big zoom" style="background-image: url(http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg)" onmousemove='zoom(event)'><img class="custom-zoom card-img-top prodpage-img" style="margin-left: auto;margin-right:auto;" src="http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg" alt="Glyde  4&quot; Basin Faucet "></a>
+                                    <a id="clickme" class=".sp-current-big zoom" style="background-image: url(http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg)" onmousemove='zoom(event)'><img id="product_image" class="custom-zoom card-img-top prodpage-img" style="margin-left: auto;margin-right:auto;" src="http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg" alt="Glyde  4&quot; Basin Faucet "></a>
+                                    <!-- http://d1z9ehtk9rps9k.cloudfront.net/t6172.jpg -->
                                 </div>
                             </div>
+
                             <script>
-                                document.getElementById('sp-lightbox').addEventListener('click', () => {
+                                document.getElementById('product_image').addEventListener('click', () => {
+                                    console.log("opening");
                                     document.getElementById('sp-lightbox').style.display = "block";
                                 })
+
+                                document.getElementById('sp-lightbox').addEventListener('click', () => {
+                                    console.log("closing");
+                                    document.getElementById('sp-lightbox').style.display = "none";
+                                })
                             </script>
+
                         </div>
                     </div>
 
